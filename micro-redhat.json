@@ -512,19 +512,14 @@
             }
           ]
         }
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Init": {
-          "config": {
-            "packages": {
-              "yum": {
-                "git-all": [ ]
-              }
-            }
-          }
-        }
       }
     },
+    "Properties":{
+      "UserData":{
+        "#!/bin/bash"
+        "yum install -y git"
+      }
+    }
     "InstanceSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
@@ -620,5 +615,5 @@
         ]
       }
     }
-  }  
+  }
 }
